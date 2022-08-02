@@ -1,7 +1,7 @@
 import imp
 from multiprocessing import context
 import re
-from django.shortcuts import render
+from django.shortcuts import render , get_object_or_404
 from django.http import HttpResponse , JsonResponse
 from . import models
 # Create your views here.
@@ -40,7 +40,8 @@ def Home(request):
 
 def detail_article(request , article_slug):
     context = {
-        "article" : models.Article.objects.get(slug = article_slug)
+        # "article" : models.Article.objects.get(slug = article_slug)
+        'article' : get_object_or_404(models.Article , slug = article_slug)
     }
 
     return render(request, 'blog/detail.html' , context)

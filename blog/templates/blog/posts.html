@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+ | پست ها
+{% endblock %}
+
+{% block main %}
+
+<div class="last-info">
+    {% for article in article %}
+        <div class="pix-text1">
+            <a href="{% url 'blog:detail_article' article.slug %}"><img src="{{article.image.url}}" alt="{{article.title}}"></a>
+            <div class="text1">
+                <h3>{{article.title}}</h3>
+            </div>
+            <div class="text2">
+                <p>{{article.publish}}</p>
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+    
+</div>
+
+{% endblock %}

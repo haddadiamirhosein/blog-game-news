@@ -1,0 +1,98 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>
+        بازی های برتر {% block title %}{% endblock %}
+    </title>
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'blog:home' %}">خانه</a></li>
+                    <li><a href="{% url 'blog:posts' %}">تمامی پست ها</a></li>
+                    <li><form id="form_nav"> 
+                        <input type="search" id="query" name="q" placeholder="Search...">
+                        <button>Search</button>
+                        </form>
+                    </li>
+                    <li class="login"><a href="./login.html">ورود/ثبت نام</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="information">
+
+            {% block main %}
+            {% endblock %}
+
+        </div>
+
+        <div class="search-side">
+
+            <form action="" class="search-form">
+
+                <label for="key" id="key">کلیدواژه</label><br>
+                <input type="text" id="key" name="key" value=""><br>
+
+                <label for="start">از</label><br>
+                <input type="date" id="start" name="start" value=""><br>
+
+                <label for="end">تا</label><br>
+                <input type="date" id="end" name="end" value=""><br>
+
+                <label for="select-option">ترتیب بر اساس</label><br>
+                <select name="select-option" id="select">
+                    <option value="0" selected="selected">تاریخ (جدید به قدیمی)</option>
+                    <option value="1">تاریخ (قدیمی به جدید)</option>
+                </select><br><br>
+
+                <input type="submit" value="جست و جو" id="submit"><br><br>
+
+              </form> 
+
+              <div class="thec">
+                <h2>اخبار تکنولوژی</h2>
+                <a href=""><p>جدیدترین گجت ها</p></a>
+                <a href=""><p>جدیدترین گجت ها</p></a>
+                <a href=""><p>جدیدترین گجت ها</p></a>
+                <a href=""><p>جدیدترین گجت ها</p></a>
+                <a href=""><p>جدیدترین گجت ها</p></a>
+              </div>
+              
+        </div>
+
+
+        <div class="footer">
+            <footer>
+                <div class="container">
+                    <div class="right">
+                        <ul>
+                            <li><a href="mailto:haddadiamirhosein.d@gmail.com">ارتباط با ما</a></li>
+                            <li><a href="#">درباره با ما</a></li>
+                            <li><a href="tel:09335615109">تماس با ما</a></li>
+                        </ul>
+                    </div>
+                    <div class="left">
+                        <a href="#"><img src="{% static 'telegram.jpg' %}" alt=""></a>
+                        <a href="#"><img src="{% static 'instagram.jpg' %}" alt=""></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+ |  {{article.title}}
+{% endblock %}
+
+{% block main %}
+
+    <div class="first-info">
+        <img src="{{article.image.url}}" alt="{{article.title}}">
+    </div>
+    <div>
+
+        <h2>{{article.title}}</h2>
+        <p>{{article.body}}</p>
+
+    </div>
+    <div>
+        <h2>نظرات</h2>
+        <button type="button" >می پسندم</button>
+        <button type="button"> نمی پسندم</button>
+    </div>
+
+{% endblock %}

@@ -3,6 +3,7 @@ from distutils.command.upload import upload
 from tabnanny import verbose
 from django.db import models
 from django.utils import timezone
+from extensions.utils import jalali_converter
 
 # Create your models here.
 class Article(models.Model):
@@ -28,5 +29,9 @@ class Article(models.Model):
     class Meta():
         verbose_name = "مقاله"
         verbose_name_plural = "مقالات"
+        
+    def jpublish(self):
+        return jalali_converter(self.publish)
+    jpublish.short_description = "تاریخ انتشار"
 
     
